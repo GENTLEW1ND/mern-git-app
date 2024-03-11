@@ -25,6 +25,7 @@ passport.use(
 			callbackURL: "/api/auth/github/callback",
 		},
 		async function (accessToken, refreshToken, profile, done) {
+			console.log(profile);
 			const user = await User.findOne({ username: profile.username });
 			// signup
 			if (!user) {
